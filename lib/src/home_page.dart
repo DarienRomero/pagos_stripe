@@ -4,6 +4,7 @@ import 'package:credit_card/credit_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pagos_stripe/data/tarjetas.dart';
+import 'package:pagos_stripe/helpers/helpers.dart';
 import 'package:pagos_stripe/widgets/texto_personalizado.dart';
 class HomePage extends StatefulWidget {
   @override
@@ -19,17 +20,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: TextoPersonalizado(Colors.blue, titulo),
+        title: TextoPersonalizado(Colors.blue, tituloHomePage),
         actions: [
           IconButton(
             icon: Icon(
               Icons.add,
             ),
-            onPressed: (){
-              titulo = "Probando";
-              setState(() {
-                
-              });
+            onPressed: () async {
+              mostrarAlerta(context);
+              await Future.delayed(Duration(milliseconds: 2000));
+              Navigator.pop(context);
             }
           ),
         ],
@@ -96,7 +96,12 @@ class _BtnPay extends StatelessWidget {
             minWidth: 150,
             shape: StadiumBorder(),
             color: Colors.black,
-            onPressed: (){},
+            onPressed: () async {
+              mostrarAlerta(context);
+              await Future.delayed(Duration(milliseconds: 2000));
+              Navigator.pop(context);
+              mostrarPagoExitoso(context);
+            },
             child: Row(
               children: [
                 Icon(

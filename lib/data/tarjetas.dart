@@ -27,3 +27,5 @@ List<TarjetaCredito> lista = <TarjetaCredito>[
     cardHolderName: 'Eduardo Rios'
   ),
 ];
+
+String tituloHomePage = "Home Page";
