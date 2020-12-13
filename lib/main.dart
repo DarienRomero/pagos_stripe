@@ -9,6 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.light().copyWith(
+        primaryColor: Color(0xff282879),
+        scaffoldBackgroundColor: Color(0xfff212232A),
+      ),
       home: HomePage()
     );
   }
